@@ -6,6 +6,39 @@ namespace Algorithms.Arrays
 {
     public class ArraySolutions
     {
+
+        // Find the longest span with same sum
+        /*
+         int[] arr1 = { 0,1,0,1,1,1,1};
+            int[] arr2 = { 1,1,1,1,1,0,1};
+
+            ArraySolutions s = new ArraySolutions();
+           int output = s.longestcommonsum(arr1, arr2, arr1.Length);
+            Console.Write("Longest common sum : " + output);
+            Console.ReadLine();
+         */
+        public int longestcommonsum(int [] arr1,int[] arr2,int n) {
+            int maxlen = 0;
+           
+            for (int i = 0; i < n; i++) {
+                int sum1 = 0; int sum2 = 0;
+                for (int j = i; j < n; j++)
+                {
+                    sum1 += arr1 [j];
+                    sum2 += arr2 [j];
+                    if (sum1 == sum2) {
+                        int len = j - i + 1;
+                        if (len > maxlen)
+                        {
+                            maxlen = len;
+                        }
+                    }
+                }
+            }
+
+            return maxlen;
+        
+        }
         /*
           int[] num = { 1,2,4,5,6};
 

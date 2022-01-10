@@ -1,0 +1,11 @@
+C:\Users\Asus\source\repos\Algorithms\Algorithms\bin\Debug\net472\Algorithms.exe.config
+C:\Users\Asus\source\repos\Algorithms\Algorithms\bin\Debug\net472\Algorithms.exe
+C:\Users\Asus\source\repos\Algorithms\Algorithms\bin\Debug\net472\Algorithms.pdb
+C:\Users\Asus\source\repos\Algorithms\Algorithms\obj\Debug\net472\Algorithms.csproj.AssemblyReference.cache
+C:\Users\Asus\source\repos\Algorithms\Algorithms\obj\Debug\net472\Algorithms.csproj.SuggestedBindingRedirects.cache
+C:\Users\Asus\source\repos\Algorithms\Algorithms\obj\Debug\net472\Algorithms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\source\repos\Algorithms\Algorithms\obj\Debug\net472\Algorithms.AssemblyInfoInputs.cache
+C:\Users\Asus\source\repos\Algorithms\Algorithms\obj\Debug\net472\Algorithms.AssemblyInfo.cs
+C:\Users\Asus\source\repos\Algorithms\Algorithms\obj\Debug\net472\Algorithms.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\repos\Algorithms\Algorithms\obj\Debug\net472\Algorithms.exe
+C:\Users\Asus\source\repos\Algorithms\Algorithms\obj\Debug\net472\Algorithms.pdb
