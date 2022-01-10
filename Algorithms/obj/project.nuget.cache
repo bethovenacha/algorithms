@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "lkb8jOA7L4OdLmdK6Zf+O8D3x9l80JcrB0IIq6nSpYUUJ3/x8WZX1mI1CH/k+XKTZvv1eeNzexaCBH2yltttBw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Asus\\source\\repos\\Algorithms\\Algorithms\\Algorithms.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
