@@ -2,6 +2,7 @@
 using Algorithms.GreedyMethod;
 using Algorithms.Dynamic;
 using Algorithms.Arrays;
+using System.Collections.Generic;
 
 namespace Algorithms
 {
@@ -10,8 +11,9 @@ namespace Algorithms
         static void Main(string[] args)
         {
             
-
-
+            
         }
+
+       
     }
 }
