@@ -113,5 +113,22 @@ namespace DataStructuresAndAlgorithms
            
             return bestTeam;
         }
+        /// <summary>
+        /// Returns NonConstructible change from a sorted array of coins
+        /// </summary>
+        /// <param name="coins"></param>
+        /// <returns></returns>
+        public static int NonConstructibleChange(int[] coins)
+        {
+            Array.Sort(coins);
+            int change = 0;
+            foreach (var coin in coins)
+            {
+                int current = change + 1;
+                if (coin > current) return current;
+                change += coin;
+            }
+            return change + 1;
+        }
     }
 }

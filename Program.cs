@@ -41,3 +41,10 @@ var winner = Arrays.TournamentWinner(competitions, results);
 Console.WriteLine(winner);
 */
 
+/*
+ * NON CONSTRUCTIBLE CHANGE
+ int [] coins = new int[]{1,2,5};
+var result = Arrays.NonConstructibleChange(coins);
+Console.WriteLine(result);
+*/
+
