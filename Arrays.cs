@@ -96,25 +96,22 @@ namespace DataStructuresAndAlgorithms
         {
             Dictionary<string, int> d = new Dictionary<string, int>();
             int rowIndex = 0;
+            int bestScore = 0;
+            string bestTeam = "";
             foreach (var result in results)
             {
                 List<string> match = competitions[rowIndex];
                 string winner = (result == 1) ? match[0] : match[1];
                 if (!d.ContainsKey(winner)) d[winner] = 0;
                 d[winner] += 3;
+                if (d[winner] > bestScore) { 
+                    bestScore = d[winner];
+                    bestTeam = winner;
+                }
                 rowIndex++;
             }
-            int max = 0;
-            string key = "";
-            foreach (var kvp in d)
-            {
-                if (kvp.Value > max)
-                {
-                    max = kvp.Value;
-                    key = kvp.Key;
-                }
-            }
-            return key;
+           
+            return bestTeam;
         }
     }
 }
