@@ -32,7 +32,11 @@ namespace DataStructuresAndAlgorithms
 
             return Array.Empty<int>();
         }
-
+        /// <summary>
+        /// This function returns the squares of each item in an array in a sorted order
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
         public static int[] SortedSquaredArray(int[] array)
         {
             int[] result = new int[array.Length];
@@ -59,6 +63,26 @@ namespace DataStructuresAndAlgorithms
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// This function returns true if an array is a subsequence of another array
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="sequence"></param>
+        /// <returns></returns>
+        public static bool IsValidSubsequence(List<int> array, List<int> sequence)
+        {
+            int sIndex = 0;
+            foreach (var item in array)
+            {
+                if (sIndex < sequence.Count && item == sequence[sIndex])
+                {
+                    sIndex++;
+                }
+
+            }
+            return sIndex == sequence.Count;
         }
     }
 }

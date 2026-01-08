@@ -19,3 +19,11 @@ var result = Arrays.SortedSquaredArray(input);
 Console.WriteLine($"[{string.Join(", ", result)}]");
 */
 
+/*
+int[] input = [5, 1, 22, 25, 6, -1, 8, 10];
+int[] sequence = [1, 6, -1, 10];
+
+var result = Arrays.IsValidSubsequence(input.ToList(), sequence.ToList());
+Console.WriteLine("The sequence is a subsequence: " + result); 
+ */
+
