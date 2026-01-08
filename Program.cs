@@ -20,10 +20,24 @@ Console.WriteLine($"[{string.Join(", ", result)}]");
 */
 
 /*
+ * VALID SUB SEQUENCE
 int[] input = [5, 1, 22, 25, 6, -1, 8, 10];
 int[] sequence = [1, 6, -1, 10];
 
 var result = Arrays.IsValidSubsequence(input.ToList(), sequence.ToList());
 Console.WriteLine("The sequence is a subsequence: " + result); 
  */
+
+
+/* TOURNAMENT WINNER
+var competitions = new List<List<string>> {
+            new List<string>{"HTML","C#"},
+            new List<string>{"C#","PYTHON"},
+            new List<string>{"PYTHON","HTML"}
+        };
+var results = new List<int> { 0, 0, 1 };
+
+var winner = Arrays.TournamentWinner(competitions, results);
+Console.WriteLine(winner);
+*/
 

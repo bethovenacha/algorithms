@@ -84,5 +84,37 @@ namespace DataStructuresAndAlgorithms
             }
             return sIndex == sequence.Count;
         }
+        /// <summary>
+        /// This function determines to see the winner team based on the results array
+        /// </summary>
+        /// <param name="competitions"></param>
+        /// <param name="results"></param>
+        /// <returns></returns>
+        public static string TournamentWinner(
+    List<List<string>> competitions, List<int> results
+  )
+        {
+            Dictionary<string, int> d = new Dictionary<string, int>();
+            int rowIndex = 0;
+            foreach (var result in results)
+            {
+                List<string> match = competitions[rowIndex];
+                string winner = (result == 1) ? match[0] : match[1];
+                if (!d.ContainsKey(winner)) d[winner] = 0;
+                d[winner] += 3;
+                rowIndex++;
+            }
+            int max = 0;
+            string key = "";
+            foreach (var kvp in d)
+            {
+                if (kvp.Value > max)
+                {
+                    max = kvp.Value;
+                    key = kvp.Key;
+                }
+            }
+            return key;
+        }
     }
 }
