@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStructuresAndAlgorithms
+namespace DataStructuresAndAlgorithms.Arrays
 {
     public static class Arrays
     {
@@ -101,7 +101,7 @@ namespace DataStructuresAndAlgorithms
             foreach (var result in results)
             {
                 List<string> match = competitions[rowIndex];
-                string winner = (result == 1) ? match[0] : match[1];
+                string winner = result == 1 ? match[0] : match[1];
                 if (!d.ContainsKey(winner)) d[winner] = 0;
                 d[winner] += 3;
                 if (d[winner] > bestScore) { 
@@ -130,5 +130,45 @@ namespace DataStructuresAndAlgorithms
             }
             return change + 1;
         }
+        /// <summary>
+        /// This function returns a transposed matrix
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <returns></returns>
+        public static int[,] TransposeMatrix(int[,] matrix)
+        {
+            int row = matrix.GetLength(0);
+            int col = matrix.GetLength(1);
+            int[,] transposed = new int[col, row];
+            for (int i = 0; i < col; i++)
+            {
+                for (int j = 0; j < row; j++)
+                {
+                    transposed[i, j] = matrix[j, i];
+                }
+            }
+            return transposed;
+        }
+        /*
+         public static int[][] TransposeMatrix(int[][] matrix)
+        {
+            int rows = matrix.Length;
+            int cols = matrix[0].Length;
+
+            int[][] transposed = new int[cols][];
+
+            for (int col = 0; col < cols; col++)
+            {
+                transposed[col] = new int[rows];
+                for (int row = 0; row < rows; row++)
+                {
+                    transposed[col][row] = matrix[row][col];
+                }
+            }
+
+            return transposed;
+        }
+
+         */
     }
 }
