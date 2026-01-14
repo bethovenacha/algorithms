@@ -46,7 +46,8 @@ var result = Arrays.NonConstructibleChange(coins);
 Console.WriteLine(result);
 */
 
-
+/*
+ * FINDING THE CLOSEST VALUE IN A BINARY SEARCH TREE
 string json = @"{
   ""tree"": {
     ""nodes"": [
@@ -70,4 +71,4 @@ var (tree, target) = BstBuilder.BuildFromJson(json);
 int closest = Trees.FindClosestValueInBst(tree, target);
 Console.WriteLine(closest); // 13
 
-
+*/
