@@ -72,3 +72,112 @@ int closest = Trees.FindClosestValueInBst(tree, target);
 Console.WriteLine(closest); // 13
 
 */
+
+/*
+ * SUMMING BRANCH VALUES -> DATA ONLY
+ 
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;\
+
+public class BinaryTree
+{
+    public int Value;
+    public BinaryTree Left;
+    public BinaryTree Right;
+
+    public BinaryTree(int value)
+    {
+        Value = value;
+    }
+}
+
+
+public class TreeWrapper
+{
+    public Tree Tree { get; set; }
+}
+
+public class Tree
+{
+    public List<NodeData> Nodes { get; set; }
+    public string Root { get; set; }
+}
+
+public class NodeData
+{
+    public string Id { get; set; }
+    public string Left { get; set; }
+    public string Right { get; set; }
+    public int Value { get; set; }
+}
+
+public static class TreeBuilder
+{
+    public static BinaryTree BuildTreeFromJson(string json)
+    {
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+        TreeWrapper wrapper = JsonSerializer.Deserialize<TreeWrapper>(json, options);
+        Tree tree = wrapper.Tree;
+
+        // Step 1: Create all nodes
+        Dictionary<string, BinaryTree> nodeMap = new();
+
+        foreach (var node in tree.Nodes)
+        {
+            nodeMap[node.Id] = new BinaryTree(node.Value);
+        }
+
+        // Step 2: Link left and right children
+        foreach (var node in tree.Nodes)
+        {
+            BinaryTree current = nodeMap[node.Id];
+
+            if (node.Left != null)
+            {
+                current.Left = nodeMap[node.Left];
+            }
+
+            if (node.Right != null)
+            {
+                current.Right = nodeMap[node.Right];
+            }
+        }
+
+        // Step 3: Return root
+        return nodeMap[tree.Root];
+    }
+}
+EXAMPLE USAGE 
+string json = @"{
+  ""tree"": {
+    ""nodes"": [
+      {""id"": ""1"", ""left"": ""2"", ""right"": ""3"", ""value"": 1},
+      {""id"": ""2"", ""left"": ""4"", ""right"": ""5"", ""value"": 2},
+      {""id"": ""3"", ""left"": ""6"", ""right"": ""7"", ""value"": 3},
+      {""id"": ""4"", ""left"": ""8"", ""right"": ""9"", ""value"": 4},
+      {""id"": ""5"", ""left"": ""10"", ""right"": null, ""value"": 5},
+      {""id"": ""6"", ""left"": null, ""right"": null, ""value"": 6},
+      {""id"": ""7"", ""left"": null, ""right"": null, ""value"": 7},
+      {""id"": ""8"", ""left"": null, ""right"": null, ""value"": 8},
+      {""id"": ""9"", ""left"": null, ""right"": null, ""value"": 9},
+      {""id"": ""10"", ""left"": null, ""right"": null, ""value"": 10}
+    ],
+    ""root"": ""1""
+  }
+}";
+
+BinaryTree root = TreeBuilder.BuildTreeFromJson(json);
+
+// Now you can call:
+List<int> sums = Program.BranchSums(root);
+
+
+*/
+
+
