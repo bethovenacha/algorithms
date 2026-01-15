@@ -78,5 +78,17 @@ namespace DataStructuresAndAlgorithms.Trees
             CalculateBranchSums(node.left, newRunningSum, sums);
             CalculateBranchSums(node.right, newRunningSum, sums);
         }
+        /// <summary>
+        /// This function sums up every depth of the node starting from the root node until the leaf node.
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="depth"></param>
+        /// <returns></returns>
+        public static int NodeDepths(BST root, int depth = 0)
+        {
+            if (root == null) return 0;
+            return depth + NodeDepths(root.left, depth + 1) + NodeDepths(root.right, depth + 1);
+        }
+
     }
 }
