@@ -1,4 +1,5 @@
-﻿using DataStructuresAndAlgorithms.Arrays;
+﻿using System.Text.Json;
+using DataStructuresAndAlgorithms.Arrays;
 using DataStructuresAndAlgorithms.Trees;
 
 
@@ -204,9 +205,87 @@ All the other nodes represent operators.
     "root": "1"
   }
 }
+ */
+
+/*
+ DEPTH FIRST SEARCH
+
+Youre given a NODE class that has a name and and array of children nodes.
+When put together, nodes form an acyclic tree like stucture.
+Implement the DFS method on the node class, which takes in an empty array,
+traverses the tree in a DFS (specifically navigating the tree from left to right),
+store the node names in an input array, and return it.
 
 
+
+string json = @"
+{
+  ""graph"": {
+    ""nodes"": [
+      { ""children"": [""B"", ""C"", ""D""], ""id"": ""A"", ""value"": ""A"" },
+      { ""children"": [""E"", ""F""], ""id"": ""B"", ""value"": ""B"" },
+      { ""children"": [], ""id"": ""C"", ""value"": ""C"" },
+      { ""children"": [""G"", ""H""], ""id"": ""D"", ""value"": ""D"" },
+      { ""children"": [], ""id"": ""E"", ""value"": ""E"" },
+      { ""children"": [""I"", ""J""], ""id"": ""F"", ""value"": ""F"" },
+      { ""children"": [""K""], ""id"": ""G"", ""value"": ""G"" },
+      { ""children"": [], ""id"": ""H"", ""value"": ""H"" },
+      { ""children"": [], ""id"": ""I"", ""value"": ""I"" },
+      { ""children"": [], ""id"": ""J"", ""value"": ""J"" },
+      { ""children"": [], ""id"": ""K"", ""value"": ""K"" }
+    ],
+    ""startNode"": ""A""
+  }
+}";
+
+
+GraphWrapper wrapper = JsonSerializer.Deserialize<GraphWrapper>(json);
+
+// Step 1: Create Node objects
+var nodeMap = new Dictionary<string, Node>();
+
+foreach (var n in wrapper.graph.nodes)
+{
+    nodeMap[n.id] = new Node(n.value);
+}
+
+// Step 2: Wire up children
+foreach (var n in wrapper.graph.nodes)
+{
+    var currentNode = nodeMap[n.id];
+
+    foreach (var childId in n.children)
+    {
+        currentNode.children.Add(nodeMap[childId]);
+    }
+}
+
+// Step 3: DFS from start node
+var start = nodeMap[wrapper.graph.startNode];
+var result = start.DepthFirstSearch(new List<string>());
+
+Console.WriteLine(string.Join(" -> ", result));
+
+public class GraphWrapper
+{
+    public Graph graph { get; set; }
+}
+
+public class Graph
+{
+    public List<GraphNode> nodes { get; set; }
+    public string startNode { get; set; }
+}
+
+public class GraphNode
+{
+    public string id { get; set; }
+    public string value { get; set; }
+    public List<string> children { get; set; }
+}
 
  */
+
+
 
 
