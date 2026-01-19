@@ -89,6 +89,37 @@ namespace DataStructuresAndAlgorithms.Trees
             if (root == null) return 0;
             return depth + NodeDepths(root.left, depth + 1) + NodeDepths(root.right, depth + 1);
         }
+        /// <summary>
+        /// EVALUATE EXPRESSION TREE
+        /// </summary>
+        /// <param name="tree"></param>
+        /// <returns></returns>
+        public static int EvaluateExpressionTree(BST tree)
+        {
+
+            if (tree.value >= 0)
+            {
+                return tree.value;
+            }
+
+            var leftValue = EvaluateExpressionTree(tree.left);
+            var rightValue = EvaluateExpressionTree(tree.right);
+
+            if (tree.value == -1)
+            {
+                return leftValue + rightValue;
+            }
+            if (tree.value == -2)
+            {
+                return leftValue - rightValue;
+            }
+            if (tree.value == -3)
+            {
+                return leftValue / rightValue;
+            }
+
+            return leftValue * rightValue;
+        }
 
     }
 }

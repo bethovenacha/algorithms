@@ -180,4 +180,33 @@ List<int> sums = Program.BranchSums(root);
 
 */
 
+/*
+ EVALUATE EXPRESSION TREE
+
+Youre given a binary expression tree. Write a function to evalue this tree
+mathematically and return a single integer.
+
+All leaf nodes represent operands which will always be positive integers.
+All the other nodes represent operators. 
+
+-1: +
+-2: -
+-3: /
+-4: *
+
+ {
+  "tree": {
+    "nodes": [
+      {"id": "1", "left": "2", "right": "3", "value": -1},
+      {"id": "2", "left": null, "right": null, "value": 2},
+      {"id": "3", "left": null, "right": null, "value": 3}
+    ],
+    "root": "1"
+  }
+}
+
+
+
+ */
+
 
