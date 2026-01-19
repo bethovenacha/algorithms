@@ -120,6 +120,25 @@ namespace DataStructuresAndAlgorithms.Trees
 
             return leftValue * rightValue;
         }
+        /// <summary>
+        /// DepthFirstSearch
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        public static List<string> DepthFirstSearch(Node node, List<string> array)
+        {
+            if (node == null) return array;
+
+            array.Add(node.name);
+
+            foreach (var child in node.children)
+            {
+                DepthFirstSearch(child, array);
+            }
+
+            return array;
+        }
 
     }
 }
