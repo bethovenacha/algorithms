@@ -170,5 +170,22 @@ namespace DataStructuresAndAlgorithms.Arrays
         }
 
          */
+        /// <summary>
+        ///  MINIMUM WAITING TIME
+        /// </summary>
+        /// <param name="queries"></param>
+        /// <returns></returns>
+        public static int MinimumWaitingTime(int[] queries)
+        {
+            if (queries.Length == 1) return 0;
+            Array.Sort(queries);
+            int duration = 0;
+            for (int i = 0; i < queries.Length - 1; i++)
+            {
+                int queriesLeft = queries.Length - (i + 1);
+                duration += queries[i] * queriesLeft;
+            }
+            return duration;
+        }
     }
 }

@@ -286,6 +286,11 @@ public class GraphNode
 
  */
 
-
+/*
+ MINIMUM WAITING TIME
+[3,2,1,2,6] yields 17
+If a query is executed second, then the waiting time is the duration of the first query.
+If a query is executed third, then the waiting time is the sum of the duration of the first two queries
+ */
 
 
