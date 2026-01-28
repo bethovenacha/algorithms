@@ -1,1 +1,2 @@
-This project is currently being developed to solve problems using data structures and algorithms.
+This project is a compilation of problems that are solved using data structures and algorithms.
+
