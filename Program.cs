@@ -293,4 +293,33 @@ If a query is executed second, then the waiting time is the duration of the firs
 If a query is executed third, then the waiting time is the sum of the duration of the first two queries
  */
 
+/* Optimal Freelancing:
+ * You're given an array of jobs with deadline.
+ * Each job has a corresponding payment.
+ * Write a function that returns the maximum profit within a 7 day period.
+ * 
+ * Each job will take one day full to complete. The deadline will determine the number of days left to do the job.
+ * Note: Only one job can be worked on at a time. Meaning at some scenarios, it will be impossible to complete them all
+var jobs = new Dictionary<string, int>[]
+{
+    new Dictionary<string, int>
+    {
+        { "deadline", 1 },
+        { "payment", 1 }
+    },
+    new Dictionary<string, int>
+    {
+        { "deadline", 2 },
+        { "payment", 2 }
+    },
+    new Dictionary<string, int>
+    {
+        { "deadline", 2 },
+        { "payment", 1 }
+    }
+};
+
+int result = Arrays.OptimalFreelancing(jobs);
+Console.WriteLine(result);
+*/
 

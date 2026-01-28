@@ -187,5 +187,40 @@ namespace DataStructuresAndAlgorithms.Arrays
             }
             return duration;
         }
+        /// <summary>
+        /// Optimal freelancing finds the maximum profit in relation to 
+        /// the deadline of the jobs and the associated payment.
+        /// </summary>
+        /// <param name="jobs"></param>
+        /// <returns></returns>
+        public static int OptimalFreelancing(Dictionary<string, int>[] jobs)
+        {
+            int LENGTH_OF_WEEK = 7;
+            int profit = 0;
+            // Sort jobs by payment descending
+            Array.Sort(jobs, (a, b) =>
+                b["payment"].CompareTo(a["payment"])
+            );
+
+            bool[] timeline = new bool[LENGTH_OF_WEEK];
+
+            foreach (var job in jobs)
+            {
+                int maxTime = Math.Min(job["deadline"], LENGTH_OF_WEEK);
+
+                // Find the latest available slot before the deadline
+                for (int time = maxTime - 1; time >= 0; time--)
+                {
+                    if (!timeline[time])
+                    {
+                        timeline[time] = true;
+                        profit += job["payment"];
+                        break;
+                    }
+                }
+            }
+
+            return profit;
+        }
     }
 }
