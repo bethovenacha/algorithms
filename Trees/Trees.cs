@@ -130,15 +130,40 @@ namespace DataStructuresAndAlgorithms.Trees
         {
             if (node == null) return array;
 
-            array.Add(node.name);
+            array.Add(node.Name);
 
-            foreach (var child in node.children)
+            foreach (var child in node.Children)
             {
                 DepthFirstSearch(child, array);
             }
 
             return array;
         }
+
+        public static List<string> BreadthFirstSearch(
+            Queue<Node> queue,
+             Node startNode
+        )
+        {
+            queue.Clear(); // important!
+            List<string> result = new List<string>();
+
+            queue.Enqueue(startNode);
+
+            while (queue.Count > 0)
+            {
+                Node current = queue.Dequeue();
+                result.Add(current.Name);
+
+                foreach (Node child in current.Children)
+                {
+                    queue.Enqueue(child);
+                }
+            }
+
+            return result;
+        }
+
 
     }
 }

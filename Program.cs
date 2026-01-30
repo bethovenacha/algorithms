@@ -206,7 +206,48 @@ All the other nodes represent operators.
   }
 }
  */
-
+/*
+ * BREADTH-FIRST SEARCH
+ * 
+string json = @"
+{
+  ""name"": ""A"",
+  ""children"": [
+    {
+      ""name"": ""B"",
+      ""children"": [
+        { ""name"": ""E"", ""children"": [] },
+        {
+          ""name"": ""F"",
+          ""children"": [
+            { ""name"": ""I"", ""children"": [] },
+            { ""name"": ""J"", ""children"": [] }
+          ]
+        }
+      ]
+    },
+    { ""name"": ""C"", ""children"": [] },
+    {
+      ""name"": ""D"",
+      ""children"": [
+        {
+          ""name"": ""G"",
+          ""children"": [
+            { ""name"": ""K"", ""children"": [] }
+          ]
+        },
+        { ""name"": ""H"", ""children"": [] }
+      ]
+    }
+  ]
+}";
+Node root = JsonSerializer.Deserialize<Node>(json);
+Queue<Node> queue = new Queue<Node>();
+var result = Trees.BreadthFirstSearch(queue, root);
+foreach (var node in result) { 
+    Console.WriteLine(node);
+}
+*/
 /*
  DEPTH FIRST SEARCH
 
