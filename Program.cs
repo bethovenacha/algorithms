@@ -242,8 +242,7 @@ string json = @"
   ]
 }";
 Node root = JsonSerializer.Deserialize<Node>(json);
-Queue<Node> queue = new Queue<Node>();
-var result = Trees.BreadthFirstSearch(queue, root);
+var result = Trees.BreadthFirstSearch(root);
 foreach (var node in result) { 
     Console.WriteLine(node);
 }
