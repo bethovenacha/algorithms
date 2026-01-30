@@ -145,7 +145,6 @@ namespace DataStructuresAndAlgorithms.Trees
         )
         {
             Queue<Node> queue = new Queue<Node>();
-            queue.Clear(); // important!
             List<string> result = new List<string>();
 
             queue.Enqueue(startNode);
