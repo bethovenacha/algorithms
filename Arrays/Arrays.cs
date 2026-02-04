@@ -222,5 +222,45 @@ namespace DataStructuresAndAlgorithms.Arrays
 
             return profit;
         }
+        /// <summary>
+        /// Find the three integers in an array which is equal to the targetSum and return a list if int[]
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="targetSum"></param>
+        /// <returns></returns>
+        public static List<int[]> ThreeNumberSum(int[] array, int targetSum)
+        {
+            List<int[]> result = new List<int[]>();
+            Array.Sort(array);
+
+            for (int i = 0; i < array.Length - 2; i++)
+            {
+                int left = i + 1;
+                int right = array.Length - 1;
+                while (left < right)
+                {
+                    var sum = array[i] + array[left] + array[right];
+                    if (sum == targetSum)
+                    {
+                        result.Add(new int[]{
+                    array[i],
+                    array[left],
+                    array[right]
+                });
+                        left++;
+                        right--;
+                    }
+                    else if (sum < targetSum)
+                    {
+                        left++;
+                    }
+                    else
+                    {
+                        right--;
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

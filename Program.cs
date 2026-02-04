@@ -363,3 +363,17 @@ int result = Arrays.OptimalFreelancing(jobs);
 Console.WriteLine(result);
 */
 
+/*
+int[] input = new int[] { 12, 3, 1, 2, -6, 5, -8, 6 };
+int target = 0;
+
+var results = Arrays.ThreeNumberSum(input, target);
+
+foreach (var result in results) {
+    foreach (var item in result) { 
+        Console.WriteLine(item);
+    }
+}
+*/
+
+
