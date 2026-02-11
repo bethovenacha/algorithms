@@ -262,5 +262,66 @@ namespace DataStructuresAndAlgorithms.Arrays
             }
             return result;
         }
+
+        /// <summary>
+        /// FourNumberSum
+        /// Find all quadruplets that sum up to the target sum
+        ///  [7, 6, 4, -1, 1, 2] target = 16
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="targetSum"></param>
+        /// <returns></returns>
+        public static List<List<int>> FourNumberSum(int[] array, int targetSum)
+        {
+            // Dictionary: pairSum -> list of pairs that make this sum
+            Dictionary<int, List<List<int>>> allPairSums = new Dictionary<int, List<List<int>>>();
+            List<List<int>> quadruplets = new List<List<int>>();
+
+            for (int i = 1; i < array.Length - 1; i++)
+            {
+                // Look forward for pairs (i, j)
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    int currentSum = array[i] + array[j];
+                    int difference = targetSum - currentSum;
+
+                    if (allPairSums.ContainsKey(difference))
+                    {
+                        foreach (var pair in allPairSums[difference])
+                        {
+                            quadruplets.Add(new List<int>
+                            {
+                                pair[0],
+                                pair[1],
+                                array[i],
+                                array[j]
+                            });
+                        }
+                    }
+                }
+
+                // Look backward for pairs (k, i)
+                for (int k = 0; k < i; k++)
+                {
+                    int currentSum = array[i] + array[k];
+
+                    if (!allPairSums.ContainsKey(currentSum))
+                    {
+                        allPairSums[currentSum] = new List<List<int>>
+                        {
+                            new List<int> { array[k], array[i] }
+                        };
+                    }
+                    else
+                    {
+                        allPairSums[currentSum].Add(
+                            new List<int> { array[k], array[i] }
+                        );
+                    }
+                }
+            }
+
+            return quadruplets;
+        }
     }
 }
